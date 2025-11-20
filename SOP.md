@@ -66,23 +66,29 @@ Under Storage, attach the downloaded ISO file as a virtual optical disk.
 5.  Configure timezone.
 6.  Select Use Entire Disk and then Auto Partitioning in Disk Partition page
 7.  On network configuration page choose DHCP as it is easier.
-8.  Select Install OpenSSH Server. It should be enabled.
-9.  Complete the installation.
-10. Reboot the VM
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+8.  Select Install OpenSSH Server. It should be enabled. This will allow remote access via SSH.
+9.  Finish the setup and remove the ISO file.
+10. Reboot the VM.
+#### Step 5: Post-Installation Configuration
+1. Update the system using this command:-
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
+2. Then, install the required packages.
+   ```bash
+   sudo apt install apache2
+   sudo apt install php php-mysql
+   sudo apt install mysql-server
+   sudo apt install git
+   sudo apt install ufw
+   ```
+3. Enable firewall: Allow SSH and HTTP.
+   ```bash
+   sudo ufw allow ssh
+   sudo ufw allow http
+   sudo ufw enable
+   ```
+#### Step 6: Post-Setup Verification
 1. Open a browser and enter the server’s IP address.
  - You should see the Apache default page.
 2. Test PHP:
