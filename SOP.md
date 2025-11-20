@@ -17,7 +17,7 @@
 | Jerry | Director of Technology | 2025-11-10 |
 
 ### Purpose:
-This SOP outlines the standardized procedure for creating, configuring, and preparing a virtual Linux server suitable for web application testing in a controlled environment.
+This SOP outlines the procedure for creating, configuring, and preparing a virtual Linux server suitable for web application testing.
 ### Scope:
 This SOP applies to IT students, junior system administrators, and lab personnel responsible for creating Linux virtual machines for development or pre-production testing.
 ### Accountability Matrix:
@@ -35,16 +35,13 @@ This SOP applies to IT students, junior system administrators, and lab personnel
 ### Procedure Steps:
 #### Step 1: Pre-Configuration Requirements
 - A computer with virtualization support (Intel VT-x / AMD-V).
-- Virtualization software (choose one):
-    - VMware Workstation Player
-     - Oracle VirtualBox
-     -  Hyper-V
+- VMware Workstation Player as the Virtualization software
 - Linux ISO file (recommended: Ubuntu Server 22.04 LTS).
 - Stable internet connection.
 #### Step 2: Create the Virtual Machine
 - Open VMware.
 - Click Create New VM.
-- Name the VM: web-test-server.
+- Name the VM: TEST-VM.
 - Select Linux → Ubuntu (64-bit).
 #### Step 3: Allocate Resources
 Recommended minimum resources:
@@ -52,8 +49,8 @@ Recommended minimum resources:
 - RAM: 2–4 GB
 - Storage: 20–40 GB (VDI or VMDK, dynamically allocated)
 - Network Adapter:
-     - NAT (for internet access)
-     - Bridged (if other devices need access)
+     - NAT
+     - Bridged 
 #### Step 4: Install Required Web Testing Software
 Under Storage, attach the downloaded ISO file as a virtual optical disk.
 #### Step 5: Linux Installation
@@ -62,10 +59,10 @@ Under Storage, attach the downloaded ISO file as a virtual optical disk.
 3. Set hostname :- Tester
 4. Create Admin User:
    - Username:User1
-   - Password any
+   - Password:any
 5.  Configure timezone.
-6.  Select Use Entire Disk and then Auto Partitioning in Disk Partition page
-7.  On network configuration page choose DHCP as it is easier.
+6.  Select Use Entire Disk and then Auto Partitioning in Disk Partition page.
+7.  On network configuration page use a static IP address as it is recommended for web testing.
 8.  Select Install OpenSSH Server. It should be enabled. This will allow remote access via SSH.
 9.  Finish the setup and remove the ISO file.
 10. Reboot the VM.
